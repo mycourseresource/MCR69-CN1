@@ -1,0 +1,51 @@
+Data Dictionary for Library System
+==================================
+
+Variable Name(s) Purpose / Description        Data Type    Appropriate Example
+================ ============================ ============ ================================
+books            Hold all details about the   JSON /       books = {"book": []}
+                 libraries book inventory.    Dictionary
+
+users            Holds all user details       JSON /       users = {"user": []}
+                                              Dictionary
+                                              
+loginOk          Holds the status of the      Boolean      loginOk = True  # Successful login                                             
+                 login session.                            loginOk = False # Unsuccessful login                                             
+
+
+books JSON:
+===========
+Made up of an array [List] of books with the key book.
+book is made up of:
+  title (key), String, # the title of the book
+  author (key), String, # the author of the book
+  isbn (key), String, # the isbn of the book 
+  format (key), String, # allowed values: 'PB' for paperbacks and 'HB' for hardbacks 
+  onHand (key), Integer, # the number of books available in the library 
+
+  Example:
+  --------
+  books = {'book':[
+    {'title': 'Python in easy steps', 'author': 'Mike McGrath', 'isbn': '9781840788129', 'format': 'PB', 'onHand': 4},
+    {'title': 'I\'m an HTML web page builder', 'author': 'Max Wainewright', 'isbn': '9781526301048', 'format': 'HB', 'onHand': 2},
+    {'title': 'I\'m an HTML web page builder', 'author': 'Max Wainewright', 'isbn': '1526301040', 'format': 'PB', 'onHand': 4}
+    ]}
+
+
+users JSON:
+===========
+Made up of an array [List] of users with the key user.
+user is made up of:
+  userN (key), String, # the user name used for logging in to the library system
+  userP (key), String, # the password used for logging in to the library system
+  userH (key), String, # the user's nickname
+  fails (key), Integer, # the count of failed logins since last successful login
+  books (key), Dictionary, # TBC - will hold details of books borrowed, ordered and history 
+
+  Example:
+  --------
+  users = {'user':[
+    {'userN': 'Adam', 'userP': '11234', 'userH': 'Adamos', 'fails': 0, 'books': {}},
+    {'userN': 'Breda', 'userP': '21234', 'userH': 'Ms Virtue', 'fails': 0, 'books': {}}
+    ]}
+  
