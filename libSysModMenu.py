@@ -16,6 +16,7 @@ def prtMenu(message):
     ''')
     print(message)
     selection = input('Enter your menu option: ')
+    selection = selection.strip()
     if selection in ['B', 'b', 'R', 'r', 'C', 'c', 'P', 'p', 'W', 'w', 'Q', 'q']:
         os.system('clear')
         return selection
